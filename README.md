@@ -1,54 +1,82 @@
-<div id="header" align="center">
-  <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="100"/>
-  <div id="badges">
-  <a href="https://www.linkedin.com/in/mahmoud-yassine-chiboub-0282861b6/">
-    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
-  </a>
-  <a href="https://twitter.com/y_chiboub">
-    <img src="https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter Badge"/>
-  </a>
-    <a href="https://www.facebook.com/YASSlllNE/">
-      <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook Badge"/>
-    </a>
-</div>
-  <h1>
-  hey there
-  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/>
-</h1>
-  <div align="center">
-  <img src="https://media.giphy.com/media/dWesBcTLavkZuG35MI/giphy.gif" width="600" height="300"/>
-</div>
-  ---
+# Mahmoud Yassine Chiboub
 
-### :man_technologist: About Me :
-I am a Full Stack Developer <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> from Tunisia.
+Hi, I’m Mahmoud 👋  
+I’m a backend-focused software engineer with experience building and operating production systems, APIs, and real-time services.
 
-  - :telescope: I’m a 23 years old Software Engineer.
+I’ve worked on cloud-native applications in health-tech and SaaS environments, focusing on reliability, maintainability, and clean deployments.
 
-- :seedling: Exploring Technical Content Writing.
+## What I work on
+- Backend APIs and real-time systems
+- Async processing and system reliability
+- Cloud deployments with Docker and CI/CD
+- Frontend development (React / Next.js) for API-driven applications
 
-- :zap: In my free time, I read books and play video games and solve problems on codeforces.
+## Featured Projects
 
-- :mailbox:How to reach me: [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/mahmoud-yassine-chiboub-0282861b6/)  [![Gmail Badge](https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white)](mailto:mdyassinechiboub@gmail.com)
+### 🔹 Real-Time Customer Operations Platform
+Backend system powering a customer service and operations web application with real-time interactions.
 
-  ### :hammer_and_wrench: Languages and Tools :
-<div>
-  <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-original-wordmark.svg" title="Bootstrap" alt="Bootstrap" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-plain-wordmark.svg" title="Firebase" alt="Firebase" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original-wordmark.svg" title="MySQL"  alt="MySQL" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/django/django-plain-wordmark.svg" title="Django"  alt="Django" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original-wordmark.svg" title="Vscode"  alt="Vscode" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/php/php-original.svg" title="Php"  alt="Php" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/c/c-original.svg" title="C"  alt="C" width="40" height="40"/>&nbsp;
-  <img src="https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg" title="C++"  alt="C++" width="40" height="40"/>&nbsp;
-  
-
-  
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=YASSlNE&layout=compact&theme=vision-friendly-dark)](https://github.com/anuraghazra/github-readme-stats)
+- Designed and maintained REST APIs supporting orders, recurring orders, and customer workflows
+- Implemented real-time messaging and notifications using WebSockets with MongoDB
+- Integrated frontend (React / Next.js) with backend services for live updates
+- Worked on dashboards and internal tools for operational visibility
+- Containerized services and supported frequent deployments using Docker and CI/CD pipelines
 
 
-  </div>
+
+### 🔹 Async Job Processing System (TaskForge)
+
+A production-style backend that handles long-running tasks asynchronously using a queue + worker architecture.
+
+This project is designed to demonstrate real-world backend/system patterns: async processing, retries, idempotency, failure handling, and AWS-ready deployment.
+
+---
+
+#### Why this exists
+Many real applications must process work that cannot finish within a typical HTTP request:
+- AI/LLM tasks (summarization, embeddings)
+- report generation
+- PDF/image processing
+- bulk imports/exports
+- webhook fan-out
+
+The API should respond immediately, while background workers execute the job reliably.
+
+---
+
+## Core Features
+- **Async architecture**: API → Queue → Worker
+- **Job lifecycle**: `QUEUED` → `RUNNING` → `SUCCEEDED` / `FAILED_FINAL`
+- **Retries & failure handling**:
+  - retryable vs non-retryable error classification
+  - max attempts + DLQ (Dead Letter Queue)
+- **Idempotency**:
+  - safe `POST /jobs` with an `idempotencyKey` to prevent duplicates
+- **Job status tracking**:
+  - poll status via `GET /jobs/{id}`
+- **Dockerized services**
+- **AWS-ready deployment** (SQS + RDS + ECS/EC2)
+
+## Technical Focus
+
+**Backend & APIs**
+- Go, Python (FastAPI), TypeScript
+- REST APIs, background workers, WebSockets
+
+**Cloud & DevOps**
+- AWS (EC2, Elastic Beanstalk)
+- Docker, CI/CD with GitHub Actions
+- Basic system design and scalability concepts
+
+**Databases**
+- PostgreSQL, MySQL, MongoDB
+- Schema design and data consistency
+
+## Experience Snapshot
+- Software Engineer at Avey (Health-Tech / EMR systems)
+- Backend Developer at Synque (APIs, real-time platforms, CI/CD)
+- Experience working in production and remote environments
+
+📬 Open to remote freelance or contract work  
+📎 LinkedIn: https://www.linkedin.com/in/mahmoud-yassine-chiboub  
+📧 Email: mdyassinechiboub@gmail.com
