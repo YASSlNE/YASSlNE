@@ -32,31 +32,6 @@ This project is designed to demonstrate real-world backend/system patterns: asyn
 
 ---
 
-#### Why this exists
-Many real applications must process work that cannot finish within a typical HTTP request:
-- AI/LLM tasks (summarization, embeddings)
-- report generation
-- PDF/image processing
-- bulk imports/exports
-- webhook fan-out
-
-The API should respond immediately, while background workers execute the job reliably.
-
----
-
-## Core Features
-- **Async architecture**: API → Queue → Worker
-- **Job lifecycle**: `QUEUED` → `RUNNING` → `SUCCEEDED` / `FAILED_FINAL`
-- **Retries & failure handling**:
-  - retryable vs non-retryable error classification
-  - max attempts + DLQ (Dead Letter Queue)
-- **Idempotency**:
-  - safe `POST /jobs` with an `idempotencyKey` to prevent duplicates
-- **Job status tracking**:
-  - poll status via `GET /jobs/{id}`
-- **Dockerized services**
-- **AWS-ready deployment** (SQS + RDS + ECS/EC2)
-
 ## Technical Focus
 
 **Backend & APIs**
